@@ -69,6 +69,7 @@ export const InputArea = ({ onAdd }: Props) => {
                     <input
                         id="value"
                         type="number"
+                        min={0}
                         className="border rounded-lg p-1"
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.valueAsNumber)}
