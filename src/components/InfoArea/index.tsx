@@ -1,11 +1,14 @@
 import { formatCurrentMonth } from "@/helpers/dateFilter";
+import { ResumeItem } from "../ResumeItem";
 
 type Props = {
     currentMonth: string;
     onMunthChange: (newMonth: string) => void;
+    income: number;
+    expense: number;
 }
 
-export const InfoArea = ({ currentMonth, onMunthChange }: Props) => {
+export const InfoArea = ({ currentMonth, onMunthChange, income, expense }: Props) => {
 
     const handlePrevMonth = () => {
         let [year, month] = currentMonth.split('-');
@@ -28,7 +31,9 @@ export const InfoArea = ({ currentMonth, onMunthChange }: Props) => {
                 <div className="w-10 text-center text-2xl cursor-pointer" onClick={handleNextMonth}>➡</div>
             </div>
             <div className="flex-auto flex">
-                aa
+                <ResumeItem title="Receitas" value={income}/>
+                <ResumeItem title="Despesas" value={expense}/>
+                <ResumeItem title="Balanço" value={income - expense} color={(income - expense < 0 ? 'red' : 'green')}/>
             </div>
         </div>
     );
