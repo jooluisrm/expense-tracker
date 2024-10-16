@@ -14,7 +14,7 @@ export const InputArea = ({ onAdd }: Props) => {
 
     const handleAddEvent = () => {
         if (inputCategoria === '' || inputTitle === '' || inputValue === 0 || inputDate === '') return alert("Preencha os campos para continuar");
-        
+
         const [year, month, day] = inputDate.split('-').map(Number);
 
         let newItem: Item = {
@@ -39,12 +39,12 @@ export const InputArea = ({ onAdd }: Props) => {
             <div className="grid grid-cols-5 items-center gap-3">
 
                 <div className="flex flex-col">
-                    <label htmlFor="data">Data</label>
+                    <label htmlFor="data" className="text-xl font-bold">Data</label>
                     <input type="date" name="" id="data" className="border rounded-lg p-1" onChange={(e) => pegarData(e.target.value)}/>
                 </div>
 
                 <div className="flex flex-col">
-                    <label htmlFor="categoria">Categoria</label>
+                    <label htmlFor="categoria" className="text-xl font-bold">Categoria</label>
                     <select name="" id="categoria" className="border rounded-lg p-1" onChange={(e) => setInputCategoria(e.target.value)}>
                         <option value=""></option>
                         <option value="food">Alimentação</option>
@@ -54,7 +54,7 @@ export const InputArea = ({ onAdd }: Props) => {
                 </div>
 
                 <div className="flex flex-col">
-                    <label htmlFor="title">Título</label>
+                    <label htmlFor="title" className="text-xl font-bold">Título</label>
                     <input
                         id="title"
                         type="text"
@@ -65,7 +65,7 @@ export const InputArea = ({ onAdd }: Props) => {
                 </div>
 
                 <div className="flex flex-col">
-                    <label htmlFor="value">Valor</label>
+                    <label htmlFor="value" className="text-xl font-bold">Valor</label>
                     <input
                         id="value"
                         type="number"
