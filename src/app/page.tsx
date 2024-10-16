@@ -1,5 +1,6 @@
 "use client"
 
+import { TableArea } from "@/components/TableArea";
 import { items } from "@/data/items";
 import { filterListByMonth, getCurrentMonth } from "@/helpers/dateFilter";
 import { Item } from "@/types/Item";
@@ -26,7 +27,7 @@ const App = () => {
 
                 {/* Area de inserção */}
 
-                {/* tabela de itens */}
+                <TableArea list={filteredList}/>
             </div>
         </div>
     );
