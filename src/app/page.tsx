@@ -1,5 +1,6 @@
 "use client"
 
+import { InfoArea } from "@/components/InfoArea";
 import { TableArea } from "@/components/TableArea";
 import { items } from "@/data/items";
 import { filterListByMonth, getCurrentMonth } from "@/helpers/dateFilter";
@@ -10,12 +11,16 @@ const App = () => {
 
     const [list, setList] = useState(items);
     const [filteredList, setFilterdList] = useState<Item[]>([]);
-    const [currentMhonth, setCurrentMonth] = useState(getCurrentMonth());
+    const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
 
     useEffect(() => {
-        setFilterdList(filterListByMonth(list, currentMhonth));
-    }, [list, currentMhonth]);
+        setFilterdList(filterListByMonth(list, currentMonth));
+    }, [list, currentMonth]);
 
+    const handleMonthChange = (newMonth: string) => {
+        setCurrentMonth(newMonth);
+    }
+    
     return (
         <div className="">
             <header className="bg-blue-800 h-36 text-center min-w-full">
@@ -23,7 +28,10 @@ const App = () => {
             </header>
 
             <div className="container mx-auto max-w-[980px] mb-12 ">
-                {/* Area de informações */}
+                <InfoArea 
+                currentMonth={currentMonth}
+                onMunthChange={handleMonthChange}
+                />
 
                 {/* Area de inserção */}
 
